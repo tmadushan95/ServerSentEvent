@@ -1,5 +1,4 @@
 using ServerSentEvent.Api.Gen;
-using ServerSentEvent.Api.Model;
 using System.Net.ServerSentEvents;
 using System.Runtime.CompilerServices;
 
@@ -37,7 +36,7 @@ app.Map("live-Order", (CancellationToken cancellationToken) =>
         {
             await Task.Delay(2000, ct);
 
-            yield return new SseItem<Order>(OrderGen.CreateOrder(),"order")
+            yield return new SseItem<Order>(OrderGen.CreateOrder(), "order")
             {
                 ReconnectionInterval = TimeSpan.FromMinutes(1)
             };
@@ -47,5 +46,5 @@ app.Map("live-Order", (CancellationToken cancellationToken) =>
 
     return TypedResults.ServerSentEvents(GetOrder(cancellationToken));
 });
- 
+
 await app.RunAsync();
