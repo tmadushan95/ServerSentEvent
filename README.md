@@ -1,4 +1,4 @@
-# Live Orders SSE Project (Only Prototype)
+# Live Orders SSE Project (Demonstration only)
 
 ## Overview
 
